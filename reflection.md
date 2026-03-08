@@ -47,7 +47,9 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
 - What change did you make that finally gave the game a stable secret number?
 
----
+--- The secret number kept changing in the original app because the user is trying to refresh the page or clicking any buttons. Streamlit reruns and executes the code from top to bottom. This causes the random.randint to generate a different secret number every time.
+--- I would explain Streamlit "reruns" to a friend who has never used Streamlit by writing down something in a paper, and then rewriting the same thing that you wrote down before in a same paper. I would explain Streamlit session state to a friend by picking a random secret number, note it down to somewhere, and when restarting, he/she can reference a secret number that is noted down before. This means that the friend cannot pick the another secret number at this time.
+--- I made changes that gave the game a stable secret number by adding a condition that if "secret" is not in the Streamlit session state when adding a reset_game function in app.py. This can be executed when the user wants to reset the game by refreshing the app, then it generates the new secret number for the new game session. After that, it stays stable until the user click the "New Game" button or refresh the app.
 
 ## 5. Looking ahead: your developer habits
 
@@ -55,3 +57,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
   - This could be a testing habit, a prompting strategy, or a way you used Git.
 - What is one thing you would do differently next time you work with AI on a coding task?
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+
+--- One strategy from this project that I want to reuse in future labs or projects is how to ask a proper prompt to the AI. I would try to build that skill to ask the AI for the prompt within the code segments that explain the issue. I would also try to ask the AI for the context of the code first before debugging any bugs.
+--- One thing I would do differently next time is to check the AI code before accepting it. This can prevent small errors happening later after reruning the Streamlit app. I would also try to ask any small errors happening after their changes, such as formatting errors or logical errors in the code before reruning the app.
+--- This project changed the way I think about AI generated code by asking a proper prompt within the selected code segments that need to fix the bugs. It also notified me to check the AI code because AI can also make some mistakes, so I need to check any small errors before reruning the application.

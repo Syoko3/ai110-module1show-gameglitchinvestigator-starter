@@ -14,6 +14,8 @@ def reset_game():
     # Get the current difficulty from the selectbox
     current_difficulty = st.session_state.difficulty
     low, high = get_range_for_difficulty(current_difficulty)
+    # Set the secret number to be stable at the whole time of the current game session
+    # Until the user changes the difficulty or clicks "New Game", the secret number will not change.
     st.session_state.secret = random.randint(low, high)
     st.session_state.attempts = 1
     st.session_state.status = "playing"
